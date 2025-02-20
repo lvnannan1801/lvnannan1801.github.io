@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>6D作业网</title>
+    <style>
+        @font-face {
+            font-family: 'MiSans';
+            src: url('https://webstatic.mihoyo.com/common/clgm-static/ys/fonts/zh-cn.ttf') format('truetype');
+        }
+        :root {
+            --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            --text-color: #f5f5f7;
+            --header-bg: linear-gradient(135deg, #2d2d2d 0%, #1c1c1e 100%);
+            --container-bg: rgba(45, 45, 45, 0.8);
+            --container-border: rgba(72, 72, 74, 0.3);
+            --accent-color: #0a84ff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f5f5f7 0%, #e0e0e0 100%);
+            --text-color: #1d1d1f;
+            --header-bg: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
+            --container-bg: rgba(255, 255, 255, 0.9);
+            --container-border: rgba(224, 224, 224, 0.3);
+            --accent-color: #0071e3);
+        }
+        body {
+            font-family: 'MiSans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+        header {
+            padding: 1.5rem;
+            background: var(--header-bg);
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid var(--container-border);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+        .update-time {
+            text-align: center;
+            padding: 1rem;
+            background: var(--container-bg);
+            margin: 1rem auto;
+            width: fit-content;
+            border-radius: 8px;
+            border: 1px solid var(--container-border);
+        }
+        .container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+            margin: 0 auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+        section {
+            background: var(--container-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--container-border);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        section:hover {
+            transform: translateY(-5px);
+        }
+        .subject {
+            font-size: 1.4rem;
+            margin: 0 0 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-weight: 600;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.8rem;
+        }
+        li {
+            padding: 1rem;
+            background: var(--container-bg);
+            border-radius: 12px;
+            border: 1px solid var(--container-border);
+            transition: all 0.2s ease;
+            list-style: none;
+        }
+        li:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        footer {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid var(--container-border);
+            backdrop-filter: blur(8px);
+        }
+        .theme-toggle {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            background: var(--container-bg);
+            border: 1px solid var(--container-border);
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            font-family: 'MiSans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .theme-toggle:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .theme-toggle {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>6D作业网</h1>
+        <button class="theme-toggle" id="theme-toggle">切换亮色模式</button>
+    </header>
+    <div class="update-time" id="update-time">最后更新：加载中...</div>
+    <div class="container">
+        <section>
+            <h2 class="subject">语文</h2>
+            <ul>
+                <li>TXL2(三)</li>
+                <li>TXL3(一,二)</li>
+                <li>yxL3</li>
+                <li>书写P13-14</li>
+            </ul>
+        </section>
+        <section>
+            <h2 class="subject">数学</h2>
+            <ul>
+                <li>DP4</li>
+            </ul>
+        </section>
+        <section>
+            <h2 class="subject">英语</h2>
+            <ul>
+                <li>带原版书</li>
+                <li>听写C11-1/C11-2</li>
+                <li>Copy C11-2</li>
+                <li>Read P104</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>Powered by GitHub Pages</p>
+    </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+        const updateTheme = () => {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            themeToggle.textContent = currentTheme === 'dark' ? '切换亮色模式' : '切换暗黑模式';
+        };
+        themeToggle.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            updateTheme();
+        });
+        updateTheme();
+        fetch('https://api.github.com/repos/lvnannan1801/lvnannan1801.github.io')
+            .then(response => response.json())
+            .then(data => {
+                const updateDate = new Date(data.pushed_at).toLocaleDateString('zh-CN');
+                document.getElementById('update-time').textContent = `最后更新：${updateDate}`;
+            })
+            .catch(() => {
+                document.getElementById('update-time').textContent = '最后更新：获取失败';
+            });
+    </script>
+</body>
+</html>
